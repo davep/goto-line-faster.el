@@ -45,7 +45,7 @@ The line number that we'll go to will start with PREFIX."
             (interactive)
             (setq unread-command-events (listify-key-sequence (number-to-string prefix)))
             (command-execute #'goto-line)))
-      (setf (get name 'function-documentation) (format "Go to a line whose number starts with %s" prefix)))))
+      (setf (get name 'function-documentation) (format "Go to a line whose number starts with %s." prefix)))))
 
 (dotimes (n 9)
   (bind-key (format "M-g %s" (1+ n)) (goto-line-faster--maker (1+ n))))
