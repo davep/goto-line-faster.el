@@ -47,6 +47,8 @@ The line number that we'll go to will start with PREFIX."
             (command-execute #'goto-line)))
       (setf (get name 'function-documentation) (format "Go to a line whose number starts with %s." prefix)))))
 
+;; Set up quick goto-line bindings for line numbers that start with 1
+;; through 9...
 (dotimes (n 9)
   (bind-key (format "M-g %s" (1+ n)) (goto-line-faster--maker (1+ n))))
 
