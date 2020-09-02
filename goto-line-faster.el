@@ -5,7 +5,7 @@
 ;; Version: 1.1
 ;; Keywords: convenience
 ;; URL: https://github.com/davep/goto-line-faster.el
-;; Package-Requires: ((emacs "24") (bind-key "2.0"))
+;; Package-Requires: ((emacs "24"))
 
 ;; This program is free software: you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by the
@@ -36,8 +36,6 @@
 
 ;;; Code:
 
-(require 'bind-key)
-
 ;;;###autoload
 (defun goto-line-faster (_)
   "Slightly faster `goto-line' for those with particular muscle memory.
@@ -58,7 +56,7 @@ have this particular muscle memory."
 ;; Set up quick goto-line bindings for line numbers that start with 1
 ;; through 9...
 (dotimes (n 9)
-  (bind-key (format "M-g %s" (1+ n)) #'goto-line-faster))
+  (global-set-key (kbd (format "M-g %s" (1+ n))) #'goto-line-faster))
 
 (provide 'goto-line-faster)
 
