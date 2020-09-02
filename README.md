@@ -2,7 +2,7 @@
 
 ## Commentary
 
-`goto-line-faster.el` provides a utility function that binds M-g followed by
+`goto-line-faster.el` provides a utility command that binds M-g followed by
 a number (1 through 9) to an invocation of goto-line with the number
 pre-populated in the input in the minibuffer.
 
