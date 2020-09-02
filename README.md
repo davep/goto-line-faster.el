@@ -2,13 +2,14 @@
 
 ## Commentary
 
-`goto-line-faster.el` provides a utility command that binds M-g followed by
-a number (1 through 9) to an invocation of goto-line with the number
-pre-populated in the input in the minibuffer.
+`goto-line-faster.el` provides a utility command that binds <kbd>M-g</kbd>
+followed by a number (<kbd>1</kbd> through <kbd>9</kbd>) to an invocation of
+goto-line with the number pre-populated in the input in the minibuffer.
 
-I wrote this because I've never liked 'M-g g' as a way to go to a line
-number, but I'd like to use some of the other M-g-prefixed key bindings too.
-This pretty much gives me the best of both worlds.
+I wrote this because I've never liked <kbd>M-g</kbd> <kbd>g</kbd> as a way
+to go to a line number, but I'd like to use some of the other
+<kbd>M-g</kbd>-prefixed key bindings too. This pretty much gives me the best
+of both worlds.
 
 Please note that this version of the code is very different from [the
 original
