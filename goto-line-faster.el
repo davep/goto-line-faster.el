@@ -1,8 +1,8 @@
 ;;; goto-line-faster.el --- Start going to a line number quickly -*- lexical-binding: t -*-
-;; Copyright 2020 by Dave Pearson <davep@davep.org>
+;; Copyright 2020-2023 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
-;; Version: 1.2
+;; Version: 1.3
 ;; Keywords: convenience
 ;; URL: https://github.com/davep/goto-line-faster.el
 ;; Package-Requires: ((emacs "24"))
@@ -36,6 +36,16 @@
 
 ;;; Code:
 
+(defgroup goto-line-faster nil
+  "Go to a line, faster."
+  :group 'convenience
+  :prefix "goto-line-faster-")
+
+(defcustom goto-line-faster-goto-line-function #'goto-line
+  "The function to call to go to a line."
+  :type 'function
+  :group 'goto-line-faster)
+
 ;;;###autoload
 (defun goto-line-faster (_)
   "Slightly faster `goto-line' for those with particular muscle memory.
@@ -47,11 +57,15 @@ to type a line number. The result is that `goto-line' is called
 with the minibuffer prepopulated with the relevant value.
 
 This command is likely of little utility to anyone who doesn't
-have this particular muscle memory."
+have this particular muscle memory.
+
+If you wish to override the function that is actually called to
+go to a line, set `goto-line-faster-goto-line-function'.
+"
   (interactive "P")
   (when (and (<= ?1 last-command-event ?9) (not (numberp current-prefix-arg)))
     (push last-command-event unread-command-events))
-  (call-interactively #'goto-line))
+  (call-interactively goto-line-faster-goto-line-function))
 
 ;; Set up quick goto-line bindings for line numbers that start with 1
 ;; through 9...
