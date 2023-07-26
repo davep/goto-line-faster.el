@@ -60,8 +60,7 @@ This command is likely of little utility to anyone who doesn't
 have this particular muscle memory.
 
 If you wish to override the function that is actually called to
-go to a line, set `goto-line-faster-goto-line-function'.
-"
+go to a line, set `goto-line-faster-goto-line-function'."
   (interactive "P")
   (when (and (<= ?1 last-command-event ?9) (not (numberp current-prefix-arg)))
     (push last-command-event unread-command-events))
